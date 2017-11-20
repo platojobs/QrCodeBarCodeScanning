@@ -15,13 +15,17 @@ AVFoundation：(苹果官方)无论在扫描灵敏度和性能上来说都是最
 AVCaptureSession 可以设置 sessionPreset 属性,来决定输出质量
   2>另一个提升扫描速度和性能的就是设置解析的范围，在zbar和zxing中就是scanCrop, AVFoundation中设置 AVCaptureMetadataOutput 的 rectOfInterest 属性来配置解析范围。
   
-  |语法|效果|
+  |扫描库|缺点|
 |----|-----|
 |ZBar|在扫描的灵敏度上，和内存的使用上相对于ZXing上都是较优的，但是对于 “圆角二维码” 的扫描确很困难。ZBarSDK目前不支持64位处理器.|
 |ZXing|是 Google Code上的一个开源的条形码扫描库，是用java设计的，连Google Glass 都在使用的。但有人为了追求更高效率以及可移植性，出现了c++ port. Github上的Objectivc-C port，其实就是用OC代码封装了一下而已，而且已经停止维护。这样效率非常低，在instrument下面可以看到CPU和内存疯涨，在内存小的机器上很容易崩溃|
 |AVFoundation|(苹果官方)无论在扫描灵敏度和性能上来说都是最优的，所以毫无疑问我们应该切换到AVFoundation，需要兼容IOS6或之前的版本可以用zbar或zxing代替；但是用到这个需要注意两点|
-  
-  
+
+  |AVFoundation|性能方面优化注意事项|
+|----|-----|
+|图片很小的时候|AVCaptureSession 可以设置 sessionPreset 属性,来决定输出质量|
+|另一个提升扫描速度和性能的就是设置解析的范围|在zbar和zxing中就是scanCrop, AVFoundation中设置 AVCaptureMetadataOutput 的 rectOfInterest 属性来配置解析范围。|
+  
 
 那么今天就来搞下ios原生的二维码和条形码扫描。
 
