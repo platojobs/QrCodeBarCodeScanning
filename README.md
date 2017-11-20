@@ -1,7 +1,7 @@
 # QrCodeBarCodeScanning
 摘要：
 在IOS中实现二维码和条形码扫描，我们所知的有，两大开源组件 ZBar 与 ZXing. 这两大组件我们都有用过，这里总结下各自的缺点：
-ZBar：在扫描的灵敏度上，和内存的使用上相对于ZXing上都是较优的，但是对于 “圆角二维码” 的扫描确很困难。
+ZBar：在扫描的灵敏度上，和内存的使用上相对于ZXing上都是较优的，但是对于 “圆角二维码” 的扫描确很困难。ZBarSDK目前不支持64位处理器.
 ZXing ：是 Google Code上的一个开源的条形码扫描库，是用java设计的，连Google Glass 都在使用的。但有人为了追求更高效率以及可移植性，出现了c++ port. Github上的Objectivc-C port，其实就是用OC代码封装了一下而已，而且已经停止维护。这样效率非常低，在instrument下面可以看到CPU和内存疯涨，在内存小的机器上很容易崩溃
 AVFoundation：(苹果官方)无论在扫描灵敏度和性能上来说都是最优的，所以毫无疑问我们应该切换到AVFoundation，需要兼容IOS6或之前的版本可以用zbar或zxing代替；但是用到这个需要注意两点
 1>图片很小的时候
@@ -42,9 +42,11 @@ session = [[AVCaptureSession alloc]init];
 //设置扫码支持的编码格式(如下设置条形码和二维码兼容)
 output.metadataObjectTypes=@[AVMetadataObjectTypeQRCode,AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode128Code];
 
+//实例化预览图层, 传递_session是为了告诉图层将来显示什么内容 
 AVCaptureVideoPreviewLayer * layer = [AVCaptureVideoPreviewLayer layerWithSession:session];
 layer.videoGravity=AVLayerVideoGravityResizeAspectFill;
 layer.frame = CGRectMake(IPHONE5_SCALAE(100), IPHONE5_SCALAE(80), VIEW_WIDTH- 2 * IPHONE5_SCALAE(100), IPHONE5_SCALAE(440));
+将图层插入当前视图 
 [AVCapView.layer insertSublayer:layer atIndex:0];
 //开始捕获
 [session startRunning];
