@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="N71-NM-FN7"/>
+                        <viewControllerLayoutGuide type="bottom" id="QyI-Mi-mq6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHV-HR-N05">
+                                <rect key="frame" x="31" y="35" width="77" height="30"/>
+                                <state key="normal" title="扫描二维码"/>
+                                <connections>
+                                    <action selector="sender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6T8-nR-C2o"/>
+                                </connections>
+                            </button>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Rj-Gd-svz">
+                                <rect key="frame" x="0.0" y="80" width="375" height="572"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="UHV-HR-N05" secondAttribute="trailingMargin" id="CLq-co-7zp"/>
+                            <constraint firstItem="UHV-HR-N05" firstAttribute="top" secondItem="N71-NM-FN7" secondAttribute="bottom" constant="15" id="HN7-OW-Zpt"/>
+                            <constraint firstItem="UHV-HR-N05" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="15" id="Ojf-NJ-B10"/>
+                            <constraint firstAttribute="trailing" secondItem="8Rj-Gd-svz" secondAttribute="trailing" id="cKJ-lc-LQC"/>
+                            <constraint firstItem="QyI-Mi-mq6" firstAttribute="top" secondItem="8Rj-Gd-svz" secondAttribute="bottom" constant="15" id="n3e-dD-DCF"/>
+                            <constraint firstItem="8Rj-Gd-svz" firstAttribute="top" secondItem="UHV-HR-N05" secondAttribute="bottom" constant="15" id="ucK-gx-LBo"/>
+                            <constraint firstItem="8Rj-Gd-svz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="uot-xx-ubw"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="8Rj-Gd-svz" id="c7S-71-ioO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="116" y="118.29085457271366"/>
+        </scene>
+    </scenes>
+</document>
