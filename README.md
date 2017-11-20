@@ -1,5 +1,6 @@
 # QrCodeBarCodeScanning
 ios原生的二维码和条形码扫描。
+
 |Author|cuishengxi|
 |---|---
 |E-mail|1300000608@qq.com
