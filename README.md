@@ -9,6 +9,7 @@ AVCaptureSession 可以设置 sessionPreset 属性,来决定输出质量
 2>另一个提升扫描速度和性能的就是设置解析的范围，在zbar和zxing中就是scanCrop, AVFoundation中设置 AVCaptureMetadataOutput 的 rectOfInterest 属性来配置解析范围。
 
 那么今天就来搞下ios原生的二维码和条形码扫描。
+
 |Author|cuishengxi|
 |---|---
 |E-mail|1300000608@qq.com
